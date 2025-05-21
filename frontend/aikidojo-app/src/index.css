@@ -1,0 +1,59 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #7F56D9;
+
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --font-family-secondary: "Roboto", sans-serif;
+
+  --g-text-input-border-radius: 6px;
+  --g-text-input-border-color: #0000001A;
+  --g-text-input-placeholder-color: #808080;
+
+  /* все, что связано с текстом */
+
+  --font-main-color: #1A1A1A;
+  --font-color-small: #333333;
+  --default-white-color: #FFFFFF;
+
+  --main-font-size: 20px;
+  --main-font-weight: 600;
+
+  --font-size-small: 12px;
+  --font-weight-small: 400;
+  
+  --button-font-weight: 700;
+  --button-font-size: 15px;
+
+  --divider-color: #EAECF0;
+
+  color: var(--font-main-color);
+  background-color: #FFFFFF;
+}
+
+body {
+  margin: 0;
+}
+
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+

@@ -1,0 +1,48 @@
+from django.urls import path, include
+
+from api.internal.transport.handlers import (
+    CheckListView,
+    CheckView,
+    CheckSetConfirmedView,
+    CheckSetDeclinedView,
+    CreateCheckView,
+    CreateGroupView,
+    CreateParentView,
+    CreatePracticeView,
+    CreateStudentView,
+    CreateTrainerView,
+    GroupStudentsView,
+    GroupView,
+    MyGroupView,
+    MyParentsView,
+    MyPaymentAccountView,
+    MyPracticesView,
+    PlaceListView,
+    PracticeListView,
+    PracticeView,
+    UserView,
+)
+
+
+urlpatterns = [
+    path('me', UserView.as_view()),
+    path('trainers', CreateTrainerView.as_view()),
+    path('parents', CreateParentView.as_view()),
+    path('student/parents', MyParentsView.as_view()),
+    path('student/account', MyPaymentAccountView.as_view()),
+    path('student/group', MyGroupView.as_view()),
+    path('student/practices', MyPracticesView.as_view()),
+    path('student/checks', CreateCheckView.as_view()),
+    path('trainer/students', CreateStudentView.as_view()),
+    path('trainer/groups', CreateGroupView.as_view()),
+    path('trainer/groups/<int:pk>', GroupView.as_view()),
+    path('trainer/groups/<int:pk>/students', GroupStudentsView.as_view()),
+    path('trainer/groups/<int:pk>/practices', CreatePracticeView.as_view()),
+    path('trainer/practices', PracticeListView.as_view()),
+    path('trainer/practices/<int:pk>', PracticeView.as_view()),
+    path('trainer/checks', CheckListView.as_view()),
+    path('trainer/checks/<int:pk>', CheckView.as_view()),
+    path('trainer/checks/setConfirmed', CheckSetConfirmedView.as_view()),
+    path('trainer/checks/setDeclined', CheckSetDeclinedView.as_view()),
+    path('trainer/places', PlaceListView.as_view()),
+]

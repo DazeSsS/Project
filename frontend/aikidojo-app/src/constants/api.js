@@ -1,5 +1,6 @@
 export const PROTOCOL = 'http://';
-export const HOST = 'localhost:8000/';
+export const IP = 'localhost';
+export const HOST = IP + ':8000/';
 export const MEDIA = 'media/';
 export const MEDIA_PATH = '';
 export const BASE_URL = PROTOCOL + HOST;

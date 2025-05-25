@@ -21,6 +21,26 @@ stop:
 restart:
 	docker compose restart
 
+rebuild-prod: build-prod down-prod up-prod
+
+build-prod:
+	docker compose -f docker-compose.prod.yaml build
+
+up-prod:
+	docker compose -f docker-compose.prod.yaml up -d
+
+down-prod:
+	docker compose -f docker-compose.prod.yaml down
+
+start-prod:
+	docker compose -f docker-compose.prod.yaml start
+
+stop-prod:
+	docker compose -f docker-compose.prod.yaml stop
+
+restart-prod:
+	docker compose -f docker-compose.prod.yaml restart
+
 prune:
 	docker system prune
 

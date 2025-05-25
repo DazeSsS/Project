@@ -33,9 +33,7 @@ SITE_URL = os.getenv('SITE_URL')
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [f'https://{os.getenv("DOMAIN")}']
-
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 

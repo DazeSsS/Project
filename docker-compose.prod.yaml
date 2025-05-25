@@ -1,0 +1,26 @@
+services:
+  api:
+    container_name: api
+    image: aikido-api:0.1
+    build: ./backend
+    command: bash -c "
+      python src/manage.py collectstatic --noinput &&
+      python src/manage.py migrate &&
+      python src/manage.py runserver 0.0.0.0:8000"
+    restart: always
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env
+    volumes:
+      - ./backend/src/api/migrations:/app/src/api/migrations
+  web:
+    container_name: web
+    image: aikido-web:0.1
+    build: ./frontend
+    command: npm run dev
+    restart: always
+    ports:
+      - 80:5173
+    depends_on:
+      - api

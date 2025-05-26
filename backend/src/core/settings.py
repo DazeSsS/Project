@@ -129,14 +129,13 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'api.User'
 
 
-# SMTP
+# Email Queue
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
+YMQ_ACCESS_KEY = os.getenv('YMQ_ACCESS_KEY')
+YMQ_SECRET_KEY = os.getenv('YMQ_SECRET_KEY')
+YMQ_QUEUE_URL = os.getenv('YMQ_QUEUE_URL')
+
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_USE_SSL = True
 
 
 # Internationalization

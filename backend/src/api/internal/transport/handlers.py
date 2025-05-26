@@ -3,7 +3,6 @@ from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 from django.conf import settings
-from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.views import APIView
@@ -12,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 
+from api.email_service import add_email_task
 from api.models import Check, Parent, PaymentAccount, Place, Practice, PracticeGroup, User
 from api.permissions import IsStudent, IsTrainer
 from api.serializers import (
@@ -94,7 +94,7 @@ class CreateStudentView(ListCreateAPIView):
         headers = self.get_success_headers(serializer.data)
 
         user_email = serializer.data['email']
-        send_mail(
+        add_email_task(
             subject="Регистрация на AikiDojo",
             message=(
                 'Поздравляем, ваш аккаунт был успешно зарегистрирован на AikiDojo!\n\n'
@@ -112,7 +112,6 @@ class CreateStudentView(ListCreateAPIView):
                 'Если вы случайно получили это сообщение - не пугайтесь, мы просто группа студентов, '
                 'которая разрабатывает веб-сервис, и мы могли случайно указать ваш email при тестировании🙂'
             ),
-            from_email=settings.EMAIL_HOST_USER,
             recipient_list=[user_email, settings.EMAIL_HOST_USER]
         )
 

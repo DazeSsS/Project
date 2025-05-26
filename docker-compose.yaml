@@ -32,7 +32,7 @@ services:
     container_name: web
     image: aikido-web:0.1
     build: ./frontend
-    command: npm run dev
+    command: npm run preview
     restart: always
     ports:
       - 5173:5173

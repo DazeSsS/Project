@@ -46,7 +46,7 @@ const MiniProfile = ({ handleLogout }) => {
         <>
           <img
             className={styles['user-profile-avatar']}
-            src={MEDIA_PATH + (miniProfileData.photo || 'https://storage.yandexcloud.net/aikido-journal-data/default/profile.png')}
+            src={miniProfileData.photo || 'https://storage.yandexcloud.net/aikido-journal-data/default/profile.png'}
             alt=""
           />
           <div className={styles['profile-name__container']}>

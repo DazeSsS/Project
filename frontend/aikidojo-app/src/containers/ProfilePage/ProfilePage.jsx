@@ -110,7 +110,7 @@ const ProfilePage = ({ view }) => {
             <div className={styles['profile__main-info__container']}>
               <img
                 className={styles['profile__main-info__img']}
-                src={MEDIA_PATH + (profileData.photo || 'https://storage.yandexcloud.net/aikido-journal-data/default/profile.png')}
+                src={profileData.photo || 'https://storage.yandexcloud.net/aikido-journal-data/default/profile.png'}
                 alt=""
               />
               <div className={styles['profile__main-info-text__container']}>

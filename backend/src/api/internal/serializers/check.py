@@ -8,7 +8,7 @@ from .payment_account import PaymentAccountSerializer
 
 
 class CheckSerializer(ModelSerializer):
-    file = serializers.FileField(max_length=None, use_url=False)
+    file = serializers.FileField(max_length=None, use_url=True)
 
     class Meta:
         model = Check

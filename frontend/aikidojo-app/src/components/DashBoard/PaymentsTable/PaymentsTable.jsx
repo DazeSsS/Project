@@ -34,7 +34,7 @@ const PaymentsTable = () => {
         amount: payment.amount,
         debt: payment.account.debt,
         file: {
-          link: MEDIA_PATH + payment.file,
+          link: payment.file,
           date: payment.date,
         },
         balance: payment.account.balance,

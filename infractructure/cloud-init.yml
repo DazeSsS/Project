@@ -1,0 +1,40 @@
+#cloud-config
+write_files:
+  - path: /home/ubuntu/.env
+    content: |
+      # Business values
+      PRACTICE_BASE_PRICE=300
+
+      # Django
+      DJANGO_SECRET_KEY=${django_secret}
+      DEBUG=${debug}
+      ADMIN_EMAIL=${admin_email}
+      ADMIN_PASSWORD=${admin_password}
+
+      # Database
+      POSTGRES_PASSWORD=${postgres_password}
+      POSTGRES_USER=${postgres_user}
+      POSTGRES_DB=${postgres_db}
+      POSTGRES_HOST=${postgres_host}
+      POSTGRES_PORT=6432
+
+      # Email Queue
+      YMQ_ACCESS_KEY=${ymq_access_key}
+      YMQ_SECRET_KEY=${ymq_secret_key}
+      YMQ_QUEUE_URL=${ymq_queue_url}
+      EMAIL_HOST_USER=${email_user}
+
+      # S3
+      AWS_ACCESS_KEY_ID=${aws_access_key}
+      AWS_SECRET_ACCESS_KEY=${aws_secret_key}
+      AWS_STORAGE_BUCKET_NAME=${aws_bucket_name}
+      AWS_S3_REGION_NAME=ru-central1
+      AWS_S3_ENDPOINT_URL=https://storage.yandexcloud.net
+runcmd:
+  - sudo git clone https://github.com/DazeSsS/Project.git /home/ubuntu/aikido
+  - cd /home/ubuntu
+  - sudo mv .env aikido/
+  - cd /home/ubuntu/aikido
+  - sudo sed -i "s/localhost/${external_ip}/" /home/ubuntu/aikido/frontend/aikidojo-app/src/constants/api.js
+  - sudo apt update && sudo apt install make
+  - sudo make up-prod
